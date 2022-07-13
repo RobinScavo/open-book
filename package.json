@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "- App for creating and reviewing flash cards which are collecting in decks with specific themes. Users can search public decks and store them in a private deck directory and individual cards can be added to private decks. Custom decks can be kept private or published.",
   "main": "server.js",
-  "engines": {
-    "node": "16.14.2"
-  },
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
@@ -16,7 +13,6 @@
   "author": "Robin Scavo",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "concurrently": "^7.2.2",
