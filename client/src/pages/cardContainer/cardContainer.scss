@@ -1,0 +1,21 @@
+.card-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 79vh;
+    width: 100%;
+    background-color: var(--background);
+    overflow-y: scroll;
+    padding: 1rem;
+    padding-top: 3rem;
+}
+
+.card-container::-webkit-scrollbar {
+    display: none;
+}
+
+.card-container.scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+}

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Work Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(251, 250, 248);
+}
+
+:root {
+    --black-color: rgb(15, 12, 1);
+    --darkish-color: rgb(0, 0, 0, 0.2);
+    --dark-color: rgb(128, 122, 134);
+    --background: rgb(167, 164, 172);
+    --light-color: rgb(251, 250, 248);
+    --yellow-color: rgb(240, 236, 230);
+    --accent-color: rgb(182, 21, 21);
+    --light-accent-color: rgb(182, 21, 21, 0.7);
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hidden {
+    display: none;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black-color);
+    height: 2.5rem;
+    width: 7rem;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--light-color);
+    border-radius: 5px;
+    font-family: 'Dosis', sans-serif;
+}

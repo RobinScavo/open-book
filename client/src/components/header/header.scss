@@ -1,0 +1,81 @@
+.header-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 9rem;
+    width: 100%;
+    border-bottom: 2.5px solid var(--background);
+
+    .upper-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50%;
+        width: 100vw;
+        border-bottom: 1.5px solid var(--darkish-color);
+        background-color: var(--yellow-color);
+        z-index: 3;
+    }
+
+    .lower-header {
+        position: relative;
+        height: 50%;
+        width: 100vw;
+        background-color: var(--yellow-color);
+        z-index: 3;
+    }
+
+    .navigation-icon {
+        height: 3.5rem;
+        width: 3.5rem;
+        margin-left: .4rem;
+        font-size: 30px;
+        background-color: transparent;
+        cursor: pointer;
+        transition: transform 500ms ease-in-out;
+    }
+
+    .rotated {
+        transform: rotate(90deg);
+    }
+
+    .login-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 6.9rem;
+        color: var(--accent-color);
+        font-size: 19px;
+        background-color: var(--yellow-color);
+        cursor: pointer;
+        margin-right: 1rem;
+    }
+
+    .icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        width: 30px;
+    }
+
+    .my-icon {
+        height: 25px;
+        width: 25px;
+        color: var(--black-color);
+    }
+
+    .logout-name {
+        color: var(--black-color)
+    }
+}
+
+@media only screen and (max-device-width: 600px) {
+    .header-container {
+        .login-link {
+            font-size: 16px;
+            margin-right: 0px;
+        }
+    }
+}

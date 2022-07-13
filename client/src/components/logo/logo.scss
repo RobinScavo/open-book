@@ -1,0 +1,27 @@
+.logo {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 9rem;
+    width: 7rem;
+    background-color: var(--yellow-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Great Vibes', cursive;
+    z-index: 4;
+
+
+    .logo-image {
+        font-size: 80px;
+        color: var(--accent-color);
+    }
+
+    .logo-title {
+        font-family: 'Dosis', sans-serif;
+        font-size: 30px;
+        margin-top: -15px;
+    }
+}

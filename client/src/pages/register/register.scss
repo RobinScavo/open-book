@@ -1,0 +1,23 @@
+#login-button {
+    color: var(--black-color);
+    background-color: var(--light-color);
+}
+
+#login-button:hover {
+    background-color: rgba(182, 21, 21, 0.7);
+    color: var(--light-color);
+    border-right: 2px solid var(--light-color);
+    border-bottom: 2px solid var(--light-color);
+    font-size: 22px;
+}
+
+#signUp-button:hover {
+    border-left: none;
+    border-bottom: 2px solid var(--dark-color);
+    font-size: 20px;
+}
+
+#signUp-button {
+    background-color: var(--light-accent-color);
+    color: var(--light-color);
+}

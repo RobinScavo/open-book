@@ -1,0 +1,29 @@
+.control-panel {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 9rem;
+    margin-top: 2px;
+    left: 0;
+    padding-bottom: 25px;
+    border-radius: 0 0 5px 0;
+    box-shadow: 1px 1px 9px 1px rgba($color: #000000, $alpha: 0.2);
+    transition: transform 500ms ease-in-out;
+    z-index: 2;
+    background-color: var(--yellow-color);
+}
+
+.closed {
+    bottom: 2px;
+}
+
+.open {
+    bottom: -2px;
+    transform: translateY(100%);
+}
+
+.control-button {
+    margin-top: 18px;
+}

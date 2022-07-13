@@ -1,0 +1,96 @@
+.create-deck {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 79vh;
+    width: 100vw;
+    padding: 10px;
+    overflow: scroll;
+}
+
+.create-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Dosis', sans-serif;
+}
+
+.create-label {
+    margin-top: 17px;
+    margin-bottom: 10px;
+    font-size: 23px;
+}
+
+.create-input {
+    text-align: start;
+    border-radius: 5px;
+    height: 2.3rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--dark-color);
+    font-size: 22px;
+    word-wrap: break-word;
+}
+
+.create-input:focus {
+    outline: none;
+}
+
+.create-input:focus::placeholder {
+    color: transparent;
+}
+
+.QA {
+    height: 7rem;
+    width: 70vw;
+}
+
+.create-button {
+    width: 10rem !important;
+    margin-top: 20px;
+}
+
+.create-title {
+    margin-top: 20px;
+    font-size: 24px;
+    color: var(--light-accent-color)
+}
+
+.create-selector {
+    text-align: center;
+    width: 12rem;
+    height: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--dark-color);
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.create-selector:focus {
+    outline: none;
+}
+
+.edit-container::-webkit-scrollbar {
+    display: none;
+}
+
+.edit-container.scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+}
+
+.authTitleContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 70vw;
+}
+
+.authTitleDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .create-input {
+        width: 30vw;
+    }
+}

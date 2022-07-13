@@ -1,0 +1,40 @@
+.deck-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 79vh;
+    width: 100vw;
+    overflow: scroll;
+    padding: 1rem;
+    padding-top: 3rem;
+    background-color: var(--background);
+}
+
+.deck-container::-webkit-scrollbar {
+    display: none;
+}
+
+.deck-container.scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+}
+
+.deck-container-heading {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 40px;
+    flex-direction: column;
+    margin-top: 0px;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    background-color: var(--yellow-color);
+    border-bottom-left-radius: 5px;
+    box-shadow: 1px 1px 9px 1px rgba($color: #000000, $alpha: 0.2);
+}

@@ -1,0 +1,102 @@
+.deck {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+    width: 25rem;
+    background-color: var(--light-color);
+    margin: 10px;
+    box-shadow: -2px 2px 9px 1px rgba($color: #000000, $alpha: 0.2);
+    border-radius: 5px;
+    color: var(--black-color);
+}
+
+.upper-deck {
+    display: flex;
+    width: 100%;
+    height: 55%;
+}
+
+
+.deck-icon-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin-left: 10px;
+}
+
+.icon-background {
+    position: absolute;
+    background-color: var(--black-color);
+    width: 60px;
+    height: 60px;
+    top: 10;
+}
+
+.deck-icon {
+    font-size: 6.5rem;
+    color: var(--accent-color);
+    z-index: 1;
+}
+
+.deck-info {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding-top: .5rem;
+    padding-left: 20px;
+    line-height: 1.2;
+}
+
+.deck-subject {
+    font-size: 30px;
+    margin-bottom: 1rem;
+    word-break: break-all;
+}
+
+.deck-title {
+    font-size: 25px;
+    margin-bottom: 1rem;
+}
+
+.deck-author {
+    font-size: 20px;
+    margin-bottom: 11rem;
+}
+
+.deck-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 20px;
+    width: 90%;
+    height: 35%;
+    padding: 5px;
+}
+
+.deck-uploads {
+    font-size: 17px;
+    color: rgba(15, 12, 1, 0.6);
+}
+
+.deck-number {
+    color: var(--accent-color)
+}
+
+@media only screen and (max-device-width: 600px) {
+    .deck {
+        width: 18rem;
+    }
+    .deck-icon-container {
+        width: 52%;
+    }
+    .deck-subject {
+        font-size: 25px;
+    }
+    .deck-title {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,85 @@
+.card {
+    position: relative;
+    height: 15rem;
+    width: 25rem;
+    margin: 10px;
+    color: var(--black-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: transparent;
+    overflow: scroll;
+}
+
+.answer, .question {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: var(--light-color);
+    box-shadow: -2px 2px 9px 1px rgba($color: #000000, $alpha: 0.2);
+    white-space: pre-wrap;
+}
+
+.card .answer {
+    transform: rotateY(90deg);
+    transition: all ease-in 0.2s;
+}
+
+.flipped .answer {
+    transform: rotateY(0deg);
+    transition-delay: 0.2s;
+}
+
+.card .question {
+    transition: all ease-in 0.2s;
+    transition-delay: 0.2s;
+}
+
+.flipped .question {
+    transform: rotateY(90deg);
+    transition-delay: 0s;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+    width: 100%;
+    justify-self: flex-start;
+    margin-bottom: 5%;
+}
+
+.edit-button {
+    background-color: transparent;
+    color: rgba(15, 12, 1, 0.6);
+    cursor: pointer;
+    font-size: 19px;
+}
+
+.edit-button:hover {
+    color: var(--accent-color);
+}
+
+.card-header-title {
+    font-family: 'Great Vibes', cursive;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#card-edit-textarea {
+    width: 80%;
+    height: 70%;
+    margin-bottom: 20px;
+}
+
+.card-edit-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    display: flex;
+}
