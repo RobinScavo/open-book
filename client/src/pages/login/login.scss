@@ -2,9 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     height: 79vh;
     background-color: var(--dark-color);
+    padding-bottom: 20px;
 }
 
 .form-container {
@@ -23,6 +24,8 @@
     width: 100%;
     height: 100%;
     background-color: var(--light-color);
+    font-family: 'Dosis', sans-serif;
+    padding-bottom: 20px;
 }
 
 .toggle-login-div {
@@ -69,6 +72,8 @@
     height: 2.5rem;
     background-color: rgba(0, 0, 0, 0.1);
     border: 2px solid var(--dark-color);
+    font-family: 'Dosis', sans-serif;
+    font-size: 17px;
 }
 
 .login-input:focus {
@@ -76,7 +81,8 @@
 }
 
 .login-input::placeholder {
-
+    font-family: 'Dosis', sans-serif;
+    font-size: 17px;
 }
 
 .login-input:focus::placeholder {

@@ -52,7 +52,8 @@ const CardContainer = () => {
         dispatch(editDeck(pojo));
         dispatch(reset());
 
-        window.location.reload();
+        toast.success('Deck has been updated.');
+        navigate(`/decks/privateDecks/`)
     }
 
     if (isLoading) {
