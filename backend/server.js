@@ -6,7 +6,6 @@ const { errorHandler } = require('./middleware/error');
 const connectDB = require('./config/db')
 const users = require('./routes/usersRoute');
 const decks = require('./routes/decksRoute');
-console.log('!!!!!!!!!', process.env.PORT)
 
 const port = process.env.PORT || 8080;
 
