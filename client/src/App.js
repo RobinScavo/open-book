@@ -13,6 +13,7 @@ import NotFound from './components/notFound/NotFound';
 import Register from './pages/register/Register';
 import Login from './pages/login/Login';
 import EditDeck from './components/editDeck/EditDeck';
+import Welcome from './components/welcome/Welcome';
 
 import './app.scss';
 
@@ -24,7 +25,16 @@ function App() {
       <div className="App">
 
         <Routes>
-          <Route exact path='/' element={<Navigate to='/decks' />} />
+          <Route exact path='/' element={
+            <>
+            <Header
+              showCreateButton = {true}
+              showYourDecksButton = {true}
+            />
+
+            <Welcome />
+            </>
+          } />
 
           {/* Public Decks */}
           <Route exact path='/decks' element = {

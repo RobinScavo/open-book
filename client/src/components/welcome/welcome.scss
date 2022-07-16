@@ -1,0 +1,46 @@
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 79vh;
+    background-color: var(--dark-color);
+    padding-bottom: 20px;
+}
+
+.welcome-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 80%;
+    width: 70vw;
+    max-width: 550px;
+    border-radius: 5px;
+    background-color: var(--light-color);
+    font-family: 'Dosis', sans-serif;
+    padding: 40px;
+    text-align: center;
+}
+
+.welcome {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.welcome-title {
+    font-size: 30px;
+}
+
+.welcome-text {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.welcome-flair {
+    font-family: 'Great Vibes', cursive;
+    color: var(--accent-color);
+    margin-right: 7px;
+    margin-left: 4px;
+    font-size: 40px;
+}
