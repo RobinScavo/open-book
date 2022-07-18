@@ -1,105 +1,85 @@
-import React from "react";
-import { shallow } from 'enzyme';
 import Deck from '../Deck';
-import { mockDeck, findByTestAtrr, checkProps } from "../../../../tools/utils";
+import { mockDeck, thirdMockDeck, checkProps } from "../../../../tools/utils";
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
-const setUp = (props={}) => {
-    const component = shallow(<Deck {...props} />);
-    return component;
-}
+describe('Deck', () => {
+    describe('Checking Proptypes', () => {
 
-describe('Checking Proptypes', () => {
+        test('Should not throw a warning', () => {
+            const expectedProps = {
+                deck: mockDeck,
+                userLocation: 'privateDecks'
+            }
 
-    const testDeck = {
-        subject: 'test subject',
-        title: 'test title',
-        author: 'test author',
-        uploads: 3,
-    }
-    test('Should not throw a warning', () => {
-        // const expectedProps = {
-        //     deck: testDeck,
-        //     userLocation: 'privateDecks'
-        // }
-        // const propsErr = checkProps(Deck, expectedProps)
-        // expect(propsErr).toBeUndefined();
+            const propsErr = checkProps(Deck, expectedProps)
+            expect(propsErr).toBeUndefined();
+        });
     });
-});
 
-// describe('Private Deck Component', () => {
+    describe('Deck should render correctly for public decks', () => {
+        beforeEach(() => render(<Deck deck={mockDeck} userLocation='publicDecks' />))
 
-//     describe('Have correct props: Private', () => {
-//         let wrapper;
-//         beforeEach(() => {
-//             const props = {
-//                 deck: {
-//                     subject: mockDeck.subject,
-//                     title: mockDeck.title,
-//                     author: mockDeck.author,
-//                     likes: mockDeck.likes
-//                 },
-//                 userLocation: ''
-//             }
-//             wrapper = setUp(props)
-//         });
+        test('Should have a subject, title and author', () => {
+            expect(screen.getByText(/test author/i)).toBeInTheDocument();
+            expect(screen.getByText(/react/i)).toBeInTheDocument();
+            expect(screen.getByText(/test title/i)).toBeInTheDocument();
+        })
 
-//         test('Should render without errors', () => {
-//             const deck = wrapper.find('.deck');
-//             expect(deck.length).toBe(1)
-//         })
+        test('Should have uploads and cards but NOT published', () => {
+            expect(screen.queryByText(/published/i)).toBeNull();
+            expect(screen.getByText(/uploads/i)).toBeInTheDocument();
+            expect(screen.getByText(/cards/i)).toBeInTheDocument();
+            expect(screen.getByTestId(/uploads/i)).toHaveTextContent(6);
+            expect(screen.getByTestId(/cards/i)).toHaveTextContent(2);
+        })
 
-//         test('Should render a subject', () => {
-//             const subjectText = findByTestAtrr(wrapper, 'subjectText')
-//             expect(subjectText.length).toBe(1);
-//         })
+        test('Should have correct icon styling', () => {
+            expect(screen.getByTestId(/icon-background/i)).toHaveStyle({
+                background: 'var(--black-color)',
+                top: '7px',
+                left: '8px',
+                height: '100px',
+                width: '100px',
+                borderRadius: '50%'
+            })
 
-//         test('Should render a title', () => {
-//             const titleText = findByTestAtrr(wrapper, 'titleText')
-//             expect(titleText.length).toBe(1);
-//         })
+            expect(screen.getByTestId(/deck-icon/i)).toHaveStyle({
+                color: 'rgb(97,219,251)'
+            })
+        })
+    })
 
-//         test('Should render a author', () => {
-//             const authorText = findByTestAtrr(wrapper, 'authorText')
-//             expect(authorText.length).toBe(1);
-//         })
+    describe('Third deck should render correctly for private decks', () => {
+        beforeEach(() => render(<Deck deck={thirdMockDeck} userLocation='privateDecks' />))
 
-//         test('Should render uploads', () => {
-//             const uploadText = findByTestAtrr(wrapper, 'uploadText')
-//             expect(uploadText.length).toBe(1);
-//         })
+        test('Should have a subject, title and author', () => {
+            expect(screen.getByText(/third test author/i)).toBeInTheDocument();
+            expect(screen.getByText(/javascript/i)).toBeInTheDocument();
+            expect(screen.getByText(/third test title/i)).toBeInTheDocument();
+        })
 
-//         test('Should NOT render "published" prop for public deck', () => {
-//             const publishedText = findByTestAtrr(wrapper, 'publishedText')
-//             expect(publishedText.length).toBe(0);
-//         })
-//     })
-// })
+        test('Should have uploads and cards but NOT published', () => {
+            expect(screen.queryByText(/published/i)).toBeInTheDocument();
+            expect(screen.getByText(/uploads/i)).toBeInTheDocument();
+            expect(screen.getByText(/cards/i)).toBeInTheDocument();
+            expect(screen.getByTestId(/uploads/i)).toHaveTextContent(3);
+            expect(screen.getByTestId(/cards/i)).toHaveTextContent(2);
+        })
 
-// describe('Public Deck Component', () => {
-//     describe('Have correct props: Public', () => {
+        test('Should have correct icon styling', () => {
+            expect(screen.getByTestId(/icon-background/i)).toHaveStyle({
+                background: 'var(--black-color)',
+                top: '25px',
+                left: '25px',
+                height: '80px',
+                width: '80px',
+                borderRadius: '0%'
+            })
 
-//         let wrapper;
-//         beforeEach(() => {
-//             const props = {
-//                 deck: {
-//                     subject: mockDeck.subject,
-//                     title: mockDeck.title,
-//                     author: mockDeck.author,
-//                     likes: mockDeck.likes
-//                 },
-//                 userLocation: 'privateDecks'
-//             }
-//             wrapper = setUp(props)
-//         });
-
-//         test('Should render without errors', () => {
-//             const deck = wrapper.find('.deck');
-//             expect(deck.length).toBe(1)
-//         })
-
-//         test('Should render "published" prop for private deck', () => {
-//             const publishedText = findByTestAtrr(wrapper, 'publishedText')
-//             expect(publishedText.length).toBe(1);
-//         })
-//     })
-// })
+            expect(screen.getByTestId(/deck-icon/i)).toHaveStyle({
+                color: 'rgb(232,212,77)'
+            })
+        })
+    })
+})

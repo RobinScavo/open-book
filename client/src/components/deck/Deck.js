@@ -131,6 +131,7 @@ const Deck = ({ deck, userLocation }) => {
                 <div className="deck-icon-container">
                     <div
                         className="icon-background"
+                        data-testid="icon-background"
                         style={{
                             background: iconColors[subject].backgroundColor,
                             top: iconColors[subject].top,
@@ -141,35 +142,38 @@ const Deck = ({ deck, userLocation }) => {
                         }}
                     ></div>
 
-                    <div className="deck-icon" style={{color: iconColors[subject].color}}>
-                        {subject === 'React' && <DiReact />}
-                        {subject === 'Javascript' && <DiJsBadge />}
-                        {subject === 'Drupal' && <DiDrupal />}
-                        {subject === 'Github' && <DiGithubBadge />}
-                        {subject === 'HTML5' && <DiHtml5 />}
-                        {subject === 'SASS' && <DiSass />}
-                        {subject === 'NPM' && <DiNpm />}
-                        {subject === 'Node.js' && <DiNodejs />}
-                        {subject === 'Wordpress' && <DiWordpress />}
-                        {subject === 'Web Technologies' && <DiAtom />}
-                        {subject === 'CSS' && <DiCssTricks />}
-                        {subject === 'Mongo' && <DiDatabase />}
+                    <div className="deck-icon"
+                        style={{color: iconColors[subject].color}}
+                        data-testid="deck-icon"
+                    >
+                            {subject === 'React' && <DiReact />}
+                            {subject === 'Javascript' && <DiJsBadge />}
+                            {subject === 'Drupal' && <DiDrupal />}
+                            {subject === 'Github' && <DiGithubBadge />}
+                            {subject === 'HTML5' && <DiHtml5 />}
+                            {subject === 'SASS' && <DiSass />}
+                            {subject === 'NPM' && <DiNpm />}
+                            {subject === 'Node.js' && <DiNodejs />}
+                            {subject === 'Wordpress' && <DiWordpress />}
+                            {subject === 'Web Technologies' && <DiAtom />}
+                            {subject === 'CSS' && <DiCssTricks />}
+                            {subject === 'Mongo' && <DiDatabase />}
                     </div>
                 </div>
 
                 <div className="deck-info">
-                    <h1 className='deck-subject' data-test='subjectText'>{subject}</h1>
-                    <h2 className='deck-title' data-test='titleText'>{title}</h2>
-                    <p className='deck-author' data-test='authorText'>{author}</p>
+                    <h1 className='deck-subject'>{subject}</h1>
+                    <h2 className='deck-title'>{title}</h2>
+                    <p className='deck-author'>{author}</p>
                 </div>
             </div>
 
             <div className="deck-footer">
                 {userLocation === 'privateDecks' &&
-                    <p className='deck-uploads' data-test='publishedText'>{publicDeck}</p>
+                    <p className='deck-uploads'>{publicDeck}</p>
                 }
-                <p className='deck-uploads' data-test='uploadText'>Uploads <span className='deck-number'>{likes}</span></p>
-                <p className="deck-uploads">Cards <span className='deck-number'>{cards.length}</span></p>
+                <p className='deck-uploads'>Uploads <span className='deck-number' data-testid='uploads'>{likes}</span></p>
+                <p className="deck-uploads">Cards <span className='deck-number' data-testid='cards'>{cards.length}</span></p>
             </div>
         </div>
      );

@@ -33,11 +33,12 @@ const Card = ({ question, answer, handleQuickEdit, index, userLocation }) => {
                         index={index}
                         className="edit-button"
                         onClick={handleEditMode}
+                        data-testid='editQuestionButton'
                     >Edit</button>}
                 </div>
 
                 {/* TEXT AND EDIT BUTTON */}
-                {!editMode &&  <h1>{question}</h1>}
+                {!editMode &&  <h1 data-testid='questionText'>{question}</h1>}
 
                 {/* EDIT INPUTS AND SAVE BUTTON */}
                 {editMode && !flipped && <textarea
@@ -45,7 +46,7 @@ const Card = ({ question, answer, handleQuickEdit, index, userLocation }) => {
                     className='create-input'
                     defaultValue={question}
                     onChange={(e) => setEditQuestionValue(e.target.value)}
-                    data-testid='questionText'
+                    data-testid='editQuestionText'
                 />}
 
                 <div className="card-edit-buttons">
@@ -78,11 +79,12 @@ const Card = ({ question, answer, handleQuickEdit, index, userLocation }) => {
                         index={index}
                         className="edit-button"
                         onClick={handleEditMode}
+                        data-testid='editAnswerButton'
                     >Edit</button>}
                 </div>
 
                 {/* TEXT AND EDIT BUTTON */}
-                {!editMode &&  <h1>{answer}</h1>}
+                {!editMode &&  <h1 data-testid='answerText'>{answer}</h1>}
 
                 {/* EDIT INPUTS AND SAVE BUTTON */}
                 {editMode && flipped && <textarea
