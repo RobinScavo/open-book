@@ -1,7 +1,6 @@
 import Deck from '../Deck';
 import { mockDeck, thirdMockDeck, checkProps } from "../../../../tools/utils";
-import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render, screen } from '@testing-library/react';
 
 describe('Deck', () => {
     describe('Checking Proptypes', () => {

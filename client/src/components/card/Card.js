@@ -21,7 +21,11 @@ const Card = ({ question, answer, handleQuickEdit, index, userLocation }) => {
     const flippedClass = flipped ? 'flipped' : '';
 
     return (
-        <div className={`card ${flippedClass}`} onClick={handleClick}>
+        <div
+            className={`card ${flippedClass}`}
+            onClick={handleClick}
+            data-testid='card'
+        >
 
             {/* QUESTION */}
             <div className={`question`}>
@@ -33,7 +37,6 @@ const Card = ({ question, answer, handleQuickEdit, index, userLocation }) => {
                         index={index}
                         className="edit-button"
                         onClick={handleEditMode}
-                        data-testid='editQuestionButton'
                     >Edit</button>}
                 </div>
 
@@ -92,7 +95,7 @@ const Card = ({ question, answer, handleQuickEdit, index, userLocation }) => {
                     className='create-input'
                     defaultValue={answer}
                     onChange={(e) => setEditAnswerValue(e.target.value)}
-                    data-testid='answerText'
+                    data-testid='editAnswerText'
                 />}
 
                 <div className="card-edit-buttons">
