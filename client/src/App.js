@@ -29,7 +29,6 @@ function App() {
             <>
             <Header
               showCreateButton = {true}
-              showYourDecksButton = {true}
             />
 
             <Welcome />

@@ -28,12 +28,13 @@ const Header = (props) => {
     }
 
     return (
-        <div className="header-container" data-testid='header-container'>
+        <header className="header-container" data-testid='header-container'>
             <div className="upper-header">
                 <button
                     className={`navigation-icon ${rotated}`}
                     data-testid='navigation-button'
                     onClick={toggleControlPanel}
+                    aria-labelledby='Site navigation'
                 ><i className="fas fa-bars"></i></button>
 
                 {!user &&
@@ -41,6 +42,7 @@ const Header = (props) => {
                         to='/login'
                         className='login-link'
                         data-testid='login-link'
+                        aria-labelledby='log in link'
                     >
                         <div className="icon-container">
                             <  RiUserSmileFill className='my-icon'/>
@@ -68,7 +70,7 @@ const Header = (props) => {
                 {...props}
                 controlPanelDisplay={controlPanelDisplay}
             />
-        </div>
+        </header>
      );
 }
 

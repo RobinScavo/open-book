@@ -9,5 +9,13 @@ describe('Footer component', () => {
         expect(screen.getByText(/view source code/i)).toBeInTheDocument();
         expect(screen.getByRole('link', {name: /robin scavo/i})).toBeInTheDocument();
         expect(screen.getByRole('link', {name: /here/i})).toBeInTheDocument();
+
+        const myLink = (screen.getByRole('link', {name: /robin scavo/i}));
+        expect(myLink).toBeInTheDocument();
+        expect(myLink).toHaveAttribute('href', 'https://www.robinscavo.com/');
+
+        const githubLink = (screen.getByRole('link', {name: /here/i}));
+        expect(githubLink).toBeInTheDocument();
+        expect(githubLink).toHaveAttribute('href', 'https://github.com/RobinScavo/OpenBook');
     })
 })

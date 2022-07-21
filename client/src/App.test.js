@@ -1,57 +1,55 @@
 import React from 'react';
 
 // Import custom render function and built-in methods
-import  { render, fireEvent, screen } from '../tools/test-utils';
+import  { render, waitFor, screen } from '../tools/test-utils';
 import { BrowserRouter as Router } from 'react-router-dom';
+import  userEvent from  "@testing-library/user-event";
 
 import App from './App';
 import DeckContainer from './pages/deckContainer/DeckContainer';
 import Spinner from './components/spinner/Spinner';
 import Header from './components/header/Header';
+import Welcome from './components/welcome/Welcome';
+import Footer from './components/footer/Footer';
+import { act } from 'react-dom/test-utils';
 
 
-describe('initial load', () => {
+describe('end to end test', () => {
 
-    // test('header should display "log-in or sign up"', () => {
-    //     render(<Router><Header /></Router>)
+    test('clicking start button on welcome screen should display public decks', async () => {
+        render(<App />)
 
-    //     expect(screen.getByText(/log in/i)).toBeInTheDocument()
-    // });
+        const startButton = screen.getByRole('link', { name: "Let's go!"});
+        userEvent.click(startButton);
 
-    // test('should display spinner while fetching public decks', () => {
-    //     render(<Router><Spinner /></Router>)
+        await waitFor(() => {
+            expect(screen.getByText(/public library/i)).toBeInTheDocument();
+            expect(screen.getByText(/log in/i)).toBeInTheDocument();
+        })
 
-    //     expect(screen.getByTestId('spinner')).toBeInTheDocument()
-    // });
+        const logInButton = (screen.getByTestId(/login-link/i))
+        userEvent.click(logInButton);
 
-    // test('after fetching public decks, should display "public library" title', async () => {
-    //     render(<Router><DeckContainer /></Router>)
+        await waitFor(() => {
+            expect(screen.getByText(/sign up/i)).toBeInTheDocument();
+        })
 
-    //     expect(await screen.findByText(/public library/i)).toBeInTheDocument()
-    // })
-
-    test('after fetching, should display public decks', async () => {
-        // render(<Router><DeckContainer /></Router>)
-
-        // expect(await screen.findAllByTestId('deck')).toHaveLength(2)
+        const signUpButton = (screen.getByRole('link', { name: /sign up/i}))
+        userEvent.click(signUpButton);
     })
 })
 
-// describe('log in', () => {
-//     test('upon clicking "log in/sign up" should render login page', async () => {
+// describe('test', () => {
+//     test('clicking the log in button displays log in page', async () => {
 //         render(<App />)
 
-//         fireEvent.click(screen.getByTestId('login-link'))
-//         expect(screen.getByTestId('login-page')).toBeInTheDocument();
+//         const startButton = screen.getByRole('link', { name: "Let's go!"});
+//         userEvent.click(startButton);
+
+//         await waitFor(() => {
+//             expect(screen.getByText(/public library/i)).toBeInTheDocument();
+//             expect(screen.getByText(/log in/i)).toBeInTheDocument();
+//         })
 //     })
 
-//     test('upon valid login, should display spinner', async () => {
-//         render(<App />)
-
-//         fireEvent.click(screen.getByTestId('login-link'))
-//         fireEvent.change(screen.getByTestId('login-name-input'), {name: 'first'})
-//         fireEvent.change(screen.getByTestId('login-password-input'), {password: 'first'})
-//         fireEvent.click(screen.getByRole('button', {name: /submit/i}))
-//         expect(screen.getByTestId('spinner')).toBeInTheDocument()
-//     })
 // })

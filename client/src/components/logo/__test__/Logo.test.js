@@ -1,27 +1,13 @@
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react';
 
 import Logo from '../Logo';
 
-const setUp = () => {
-    const component = shallow(<Logo />);
-    return component;
-}
 
 describe('Logo Component', () => {
-    let component;
+    render(<Logo />)
 
-    beforeEach(() => {
-        component = setUp()
+    test('renders Logo and text without errors', () => {
+        expect(screen.getByText("O")).toBeInTheDocument();
+        expect(screen.getByText(/openbook/i)).toBeInTheDocument();
     })
-
-    test('renders Logo without errors', () => {
-        const wrapper = component.find('.logo-image');
-        expect(wrapper.length).toBe(1)
-    })
-
-    test('renders text without errors', () => {
-        const wrapper = component.find('.logo-title');
-        expect(wrapper.length).toBe(1)
-    })
-
 })

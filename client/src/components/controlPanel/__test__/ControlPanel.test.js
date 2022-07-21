@@ -1,15 +1,9 @@
 import React from "react";
-import { shallow } from 'enzyme';
 import ControlPanel from '../ControlPanel';
 
 
-import { mockUser, findByTestAtrr, mockDeck, checkProps } from "../../../../tools/utils";
-
-
-const setUp = (props={}) => {
-    const component = shallow(<ControlPanel {...props} />);
-    return component;
-}
+import { mockUser, checkProps } from "../../../../tools/utils";
+import { render } from "express/lib/response";
 
 describe('ControlPanel Component', () => {
 
@@ -31,6 +25,12 @@ describe('ControlPanel Component', () => {
             const propsErr = checkProps(ControlPanel, expectedProps)
             expect(propsErr).toBeUndefined();
         });
+    })
+
+    describe('Have correct buttons: Home page no user', () => {
+        test(('Should'), () => {
+            expect(true).toBe(true)
+        })
     })
 
     // describe('Have correct props: Home page no user', () => {
