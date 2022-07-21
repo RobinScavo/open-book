@@ -36,6 +36,10 @@ describe('end to end test', () => {
 
         const signUpButton = (screen.getByRole('link', { name: /sign up/i}))
         userEvent.click(signUpButton);
+
+        await waitFor(() => {
+
+        })
     })
 })
 

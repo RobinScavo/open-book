@@ -11,9 +11,10 @@
 .form-container {
     display: flex;
     flex-direction: column;
-    height: 80%;
+    height: 90%;
     width: 70vw;
     max-width: 700px;
+    overflow: scroll;
 }
 
 .login-form {
@@ -44,7 +45,8 @@
     cursor: pointer;
     font-size: 20px;
     border-bottom: 2px solid var(--dark-color);
-    color: var(--black-color)
+    color: var(--black-color);
+    min-height: 100px;
 }
 
 #signup-button:hover {
