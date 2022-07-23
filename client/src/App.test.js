@@ -16,7 +16,7 @@ import { act } from 'react-dom/test-utils';
 
 describe('end to end test', () => {
 
-    test('clicking start button on welcome screen should display public decks', async () => {
+    test('user can navigate past welcome screen', async () => {
         render(<App />)
 
         const startButton = screen.getByRole('link', { name: "Let's go!"});
@@ -26,21 +26,32 @@ describe('end to end test', () => {
             expect(screen.getByText(/public library/i)).toBeInTheDocument();
             expect(screen.getByText(/log in/i)).toBeInTheDocument();
         })
+    })
+
+    test('Log in and sign up buttons work correctly', async () => {
+        render(<App />)
 
         const logInButton = (screen.getByTestId(/login-link/i))
         userEvent.click(logInButton);
 
         await waitFor(() => {
-            expect(screen.getByText(/sign up/i)).toBeInTheDocument();
+            expect(screen.getByPlaceholderText(/enter your name/i)).toBeInTheDocument();
+            expect(screen.getByPlaceholderText(/enter a password/i)).toBeInTheDocument();
         })
 
         const signUpButton = (screen.getByRole('link', { name: /sign up/i}))
         userEvent.click(signUpButton);
 
         await waitFor(() => {
-
+            expect(screen.getByPlaceholderText(/enter your name/i)).toBeInTheDocument();
+            expect(screen.getByPlaceholderText(/enter a password/i)).toBeInTheDocument();
+            expect(screen.getByPlaceholderText(/confirm password/i)).toBeInTheDocument();
         })
     })
+
+    // test('Public decks are initially displayed', () => {
+
+    // })
 })
 
 // describe('test', () => {
