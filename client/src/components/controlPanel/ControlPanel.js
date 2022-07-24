@@ -29,7 +29,6 @@ const ControlPanel = ({
     const deckID = useParams().id;
 
     const {user} = useSelector((state) => state.auth);
-
     const { decks } = useSelector((state) => state.decks);
 
     const visible = controlPanelDisplay ? 'open' : 'closed';
@@ -76,7 +75,7 @@ const ControlPanel = ({
       }
 
     return (
-        <div className={`control-panel ${visible}`} data-test='control-panel'>
+        <div className={`control-panel ${visible}`} data-testid='control-panel'>
             {/* HOME */}
             {showHomeButton  &&
                 <Link
@@ -92,6 +91,7 @@ const ControlPanel = ({
                     className='btn control-button'
                     to='/createDeck'
                     data-test='create-button'
+                    aria-labelledby='create button'
                 >Create Deck</Link>
             }
 
@@ -101,6 +101,7 @@ const ControlPanel = ({
                     className='btn control-button'
                     to='/login'
                     data-test='create-button'
+                    aria-labelledby='create button'
                 >Create Deck</Link>
             }
 

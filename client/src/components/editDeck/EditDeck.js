@@ -65,15 +65,8 @@ const EditDeck = () => {
 
         // If the user edited the current card or added a card, push it first
         if (cardWasEdited) {
-            console.log('hit')
             newCards.splice(cardIndex, 1, {'question': currentQuestion, 'answer': currentAnswer})
         }
-        // else if (addingNewCard && currentQuestion && currentAnswer) {
-        //     console.log('blam')
-        //     let newCard = {question: currentQuestion, answer: currentAnswer}
-        //     newCards.push(newCard)
-        // }
-
 
         // Create a new deck with the original deck ID and user ID
         const newDeck = {

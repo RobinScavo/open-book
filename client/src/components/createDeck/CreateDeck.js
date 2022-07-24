@@ -41,7 +41,9 @@ const CreateDeck = () => {
     }
 
     useEffect(() => {
-        setAuthor(user.name || '')
+        if (user) {
+            setAuthor(user.name || '')
+        }
     }, [user])
 
     const handleAddCard = (e) => {
